@@ -2,11 +2,11 @@ import React from 'react';
 import {
     View,
     Text,
-    StyleSheet,
     TextInput,
     Button
 } from 'react-native';
 
+import { styles } from './AuthFormsStyle';
 
 class Login extends React.Component {
     state = {
@@ -14,7 +14,10 @@ class Login extends React.Component {
         password: ''
     }
     handleInput = (text, prop) => {
-        this.setState({[prop]: text})
+        this.setState({ [prop]: text })
+    }
+    goToRegister = () => {
+        this.props.navigation.navigate('Register')
     }
     render() {
         let { userName, password } = this.state;
@@ -24,7 +27,7 @@ class Login extends React.Component {
                 <View style={styles.loginForm}>
                     <TextInput
                         style={styles.loginTextField}
-                        placeholder="userName"
+                        placeholder="UserName"
                         onChangeText={(e) => this.handleInput(e, 'userName')}
                         value={userName}
                     />
@@ -35,35 +38,18 @@ class Login extends React.Component {
                         onChangeText={(e) => this.handleInput(e, 'password')}
                         value={password}
                     />
-                    <Button style={styles.loginButton} title="Login" />
+                    <View style={styles.loginButton}>
+                        <Button title="Login" />
+                    </View>
+                    <View style={styles.loginButton}>
+                        <Button title="Register" onPress={this.goToRegister} />
+                    </View>
                 </View>
             </View>
         )
     }
 }
 
-const styles = StyleSheet.create({
-    loginContainer: {
-        flex: 1,
-        justifyContent: "center",
-    },
-    loginTitle: {
-        textAlign: 'center',
-        fontSize: 18
-    },
-    loginForm: {
-        padding: 10
-    },
-    loginTextField: {
-        marginTop: 5,
-        marginBottom: 5,
-        borderWidth: 1,
-        borderColor: 'black'
-    },
-    loginButton: {
-        marginTop: 5
-    }
-})
 
 export default Login;
 
