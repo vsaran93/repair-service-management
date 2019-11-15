@@ -19,6 +19,9 @@ class Register extends React.Component {
     handleInput = (text, prop) => {
         this.setState({ [prop]: text })
     }
+    goToLogin = () => {
+        this.props.navigation.navigate('Login')
+    }
     render() {
         let { firstName, lastName, mobile, email, confirmPassword, password } = this.state;
         return (
@@ -63,7 +66,12 @@ class Register extends React.Component {
                         onChangeText={(e) => this.handleInput(e, 'confirmPassword')}
                         value={confirmPassword}
                     />
-                    <Button style={styles.loginButton} title="Register" />
+                    <View style={styles.loginButton}>
+                        <Button title="Register" />
+                    </View>
+                    <View style={styles.loginButton}>
+                        <Button title="Login" onPress={this.goToLogin} />
+                    </View>
                 </View>
             </View>
         )

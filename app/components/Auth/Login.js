@@ -14,7 +14,10 @@ class Login extends React.Component {
         password: ''
     }
     handleInput = (text, prop) => {
-        this.setState({[prop]: text})
+        this.setState({ [prop]: text })
+    }
+    goToRegister = () => {
+        this.props.navigation.navigate('Register')
     }
     render() {
         let { userName, password } = this.state;
@@ -35,7 +38,12 @@ class Login extends React.Component {
                         onChangeText={(e) => this.handleInput(e, 'password')}
                         value={password}
                     />
-                    <Button style={styles.loginButton} title="Login" />
+                    <View style={styles.loginButton}>
+                        <Button title="Login" />
+                    </View>
+                    <View style={styles.loginButton}>
+                        <Button title="Register" onPress={this.goToRegister} />
+                    </View>
                 </View>
             </View>
         )

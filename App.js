@@ -3,14 +3,15 @@ import {
   View,
   Text,
 } from 'react-native';
-import Login from './app/components/Auth/Login';
-import Register from './app/components/Auth/Register';
+import { createAppContainer } from 'react-navigation';
+import { switchStack } from './app/navigations/SwitchNavigation';
 
+const AppContainer = createAppContainer(switchStack);
 const App = () => {
   return (
     <>
       <Fragment>
-        <Register />
+        <AppContainer />
       </Fragment>
     </>
   );
