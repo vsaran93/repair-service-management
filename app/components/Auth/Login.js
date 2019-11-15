@@ -2,11 +2,11 @@ import React from 'react';
 import {
     View,
     Text,
-    StyleSheet,
     TextInput,
     Button
 } from 'react-native';
 
+import { styles } from './AuthFormsStyle';
 
 class Login extends React.Component {
     state = {
@@ -42,28 +42,6 @@ class Login extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    loginContainer: {
-        flex: 1,
-        justifyContent: "center",
-    },
-    loginTitle: {
-        textAlign: 'center',
-        fontSize: 18
-    },
-    loginForm: {
-        padding: 10
-    },
-    loginTextField: {
-        marginTop: 5,
-        marginBottom: 5,
-        borderWidth: 1,
-        borderColor: 'black'
-    },
-    loginButton: {
-        marginTop: 5
-    }
-})
 
 export default Login;
 
