@@ -27,7 +27,7 @@ class Login extends React.Component {
                 <View style={styles.loginForm}>
                     <TextInput
                         style={styles.loginTextField}
-                        placeholder="userName"
+                        placeholder="UserName"
                         onChangeText={(e) => this.handleInput(e, 'userName')}
                         value={userName}
                     />
