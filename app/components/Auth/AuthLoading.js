@@ -12,7 +12,7 @@ class AuthLoading extends React.Component {
     }
     _checkToken = async () => {
         const token = await AsyncStorage.getItem('userToken');
-        this.props.navigation.navigate(token ? 'App' : 'Auth')
+        this.props.navigation.navigate(token ? 'Auth' : 'App')
     }
     render() {
         return (
