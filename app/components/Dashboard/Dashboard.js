@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, Text, Dimensions, Platform, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import Header from './Header';
-import { SearchBar, Card } from 'react-native-elements';
+import { SearchBar } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
+
+import Header from './Header';
+import Services from './Services';
 
 const ENTRIES1 = [
     {
@@ -92,18 +94,18 @@ export default class Dashboard extends React.Component {
                     <View style={[styles.radiusMask, even ? styles.radiusMaskEven : {}]} />
                 </View>
                 <View style={[styles.textContainer, even ? styles.textContainerEven : {}]}>
-                    { uppercaseTitle(item.title, even) }
-                  <Text
-                    style={[styles.subtitle, even ? styles.subtitleEven : {}]}
-                    numberOfLines={2}
-                  >
-                      { item.subtitle }
-                  </Text>
-              </View>
+                    {uppercaseTitle(item.title, even)}
+                    <Text
+                        style={[styles.subtitle, even ? styles.subtitleEven : {}]}
+                        numberOfLines={2}
+                    >
+                        {item.subtitle}
+                    </Text>
+                </View>
             </TouchableOpacity>
         );
     }
-    
+
     render() {
         let { search } = this.state;
         return (
@@ -115,17 +117,8 @@ export default class Dashboard extends React.Component {
                     onChangeText={this.updateSearch}
                     value={search}
                 />
-                <Card
-                    title={"Washhing machine repair and services"}
-                    titleStyle={{ textAlign: 'left' }}
-                >
-                    <Text style={{ fontSize: 17, fontStyle: 'bold' }}>Advance Technologies</Text>
-                    <Text style={{ marginBottom: 10 }}>we specialize in the service of the major
-                    brand washing machines,Singer,Sisil.Damro,LG,Samsung,Toshiba,Panasonic,Whirlpool,Sanyo,National.
-                    We have all brand of control bords for washing machines</Text>
-                    <Text>Contact - 0772345234</Text>
-                </Card>
-                <View style={{marginTop: 20, marginBottom: 20}}>
+                <Services />
+                <View style={{ marginTop: 20, marginBottom: 20 }}>
                     <Carousel
                         layout={'default'}
                         ref={(c) => { this._carousel = c; }}
