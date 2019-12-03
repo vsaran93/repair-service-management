@@ -145,7 +145,7 @@ export default class Dashboard extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     slideInnerContainer: {
         width: itemWidth,
         height: slideHeight,
@@ -222,6 +222,10 @@ const styles = StyleSheet.create({
     },
     subtitleEven: {
         color: 'rgba(255, 255, 255, 0.7)'
+    },
+    modalBody: {
+        padding: 10,
+        margin: 5
     }
 })
 const colors = {
