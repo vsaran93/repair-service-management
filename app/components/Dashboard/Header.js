@@ -7,7 +7,7 @@ const MainHeader = (props) => {
     return (
         <Header
             leftComponent={<HamburgerMenu navigation={props.navigation} />}
-            rightComponent={<Filter />}
+            rightComponent={<Filter setVisible={props.setVisible} />}
             centerComponent={{
                 text: props.title,
                 style: { color: "#fff", fontWeight: "bold" }

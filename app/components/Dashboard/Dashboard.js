@@ -8,6 +8,7 @@ import Carousel from 'react-native-snap-carousel';
 
 import Header from './Header';
 import Services from './Services';
+import FilterModal from './FilterModal';
 
 const ENTRIES1 = [
     {
@@ -75,7 +76,8 @@ const uppercaseTitle = (title, even) => {
 export default class Dashboard extends React.Component {
     state = {
         search: '',
-        slider1ActiveSlide: SLIDER_1_FIRST_ITEM
+        slider1ActiveSlide: SLIDER_1_FIRST_ITEM,
+        isVisible: false
     }
     updateSearch = search => {
         this.setState({ search })
@@ -109,12 +111,16 @@ export default class Dashboard extends React.Component {
         );
     }
 
+    setVisible = (val) => {
+        this.setState({isVisible: val});
+    }
+
     render() {
-        let { search } = this.state;
+        let { search, isVisible } = this.state;
         return (
             <View>
                 <ScrollView>
-                    <Header title="Home" navigation={this.props.navigation} />
+                    <Header title="Home" navigation={this.props.navigation} setVisible={this.setVisible}/>
                     <SearchBar
                         placeholder="Type here.."
                         lightTheme
@@ -132,6 +138,7 @@ export default class Dashboard extends React.Component {
                             itemWidth={itemWidth}
                         />
                     </View>
+                    <FilterModal  isVisible={isVisible} setVisible={this.setVisible} />
                 </ScrollView>
             </View>
         )
