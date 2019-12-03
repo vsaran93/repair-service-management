@@ -1,5 +1,8 @@
 import React from 'react';
-import { View, Text, Dimensions, Platform, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import {
+    View, Text, Dimensions, Platform, StyleSheet,
+    TouchableOpacity, Image, ScrollView
+} from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
 
@@ -83,7 +86,7 @@ export default class Dashboard extends React.Component {
             <TouchableOpacity
                 activeOpacity={1}
                 style={styles.slideInnerContainer}
-                onPress={() => { alert(`You've clicked '${item.title}'`); }}
+                onPress={() => { }}
             >
                 <View style={styles.shadow} />
                 <View style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
@@ -110,24 +113,26 @@ export default class Dashboard extends React.Component {
         let { search } = this.state;
         return (
             <View>
-                <Header title="Home" navigation={this.props.navigation} />
-                <SearchBar
-                    placeholder="Type here.."
-                    lightTheme
-                    onChangeText={this.updateSearch}
-                    value={search}
-                />
-                <Services />
-                <View style={{ marginTop: 20, marginBottom: 20 }}>
-                    <Carousel
-                        layout={'default'}
-                        ref={(c) => { this._carousel = c; }}
-                        data={ENTRIES1}
-                        renderItem={this._renderItem}
-                        sliderWidth={sliderWidth}
-                        itemWidth={itemWidth}
+                <ScrollView>
+                    <Header title="Home" navigation={this.props.navigation} />
+                    <SearchBar
+                        placeholder="Type here.."
+                        lightTheme
+                        onChangeText={this.updateSearch}
+                        value={search}
                     />
-                </View>
+                    <Services />
+                    <View style={{ marginTop: 20, marginBottom: 20 }}>
+                        <Carousel
+                            layout={'default'}
+                            ref={(c) => { this._carousel = c; }}
+                            data={ENTRIES1}
+                            renderItem={this._renderItem}
+                            sliderWidth={sliderWidth}
+                            itemWidth={itemWidth}
+                        />
+                    </View>
+                </ScrollView>
             </View>
         )
     }
