@@ -9,12 +9,13 @@ class Services extends React.Component {
                 <Card
                     title={"Washhing machine repair and services"}
                     titleStyle={{ textAlign: 'left' }}
+                    containerStyle={{ elevation: 3 }}
                 >
-                    <Text style={{ fontSize: 17, fontStyle: 'bold' }}>Advance Technologies</Text>
-                    <Text style={{ marginBottom: 10 }}>we specialize in the service of the major
+                    <Text style={{ fontSize: 17, fontStyle: 'bold', marginBottom: 5 }}>Advance Technologies</Text>
+                    <Text style={{ marginBottom: 10, letterSpacing: 0.2 }}>we specialize in the service of the major
                     brand washing machines,Singer,Sisil.Damro,LG,Samsung,Toshiba,Panasonic,Whirlpool,Sanyo,National.
                     We have all brand of control bords for washing machines</Text>
-                    <Text>Contact - 0772345234</Text>
+                    <Text style={{ letterSpacing: 0.2 }}>Contact - 0772345234</Text>
                     <Button
                         icon={<Icon name='book' color='#ffffff' />}
                         buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0, marginTop: 5 }}
