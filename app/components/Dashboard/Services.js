@@ -16,10 +16,11 @@ class Services extends React.Component {
                     brand washing machines,Singer,Sisil.Damro,LG,Samsung,Toshiba,Panasonic,Whirlpool,Sanyo,National.
                     We have all brand of control bords for washing machines</Text>
                     <Text style={{ letterSpacing: 0.2 }}>Contact - 0772345234</Text>
+                    <Text style={{ letterSpacing: 0.2 }}>Location - Colombo</Text>
                     <Button
                         icon={<Icon name='book' color='#ffffff' />}
                         buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0, marginTop: 5 }}
-                        title='BOOK NOW' />
+                        title='BOOK SERVICE' />
                 </Card>
             </View>
         )

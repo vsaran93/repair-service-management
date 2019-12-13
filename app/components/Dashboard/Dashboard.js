@@ -3,12 +3,15 @@ import {
     View, Text, Dimensions, Platform, StyleSheet,
     TouchableOpacity, Image, ScrollView
 } from 'react-native';
-import { SearchBar } from 'react-native-elements';
+import { SearchBar, Icon } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
 
 import Header from './Header';
 import Services from './Services';
 import FilterModal from './FilterModal';
+import AddService from "../Customer/AddService";
+
+import AntIcon from "react-native-vector-icons/AntDesign";
 
 const ENTRIES1 = [
     {
@@ -77,7 +80,8 @@ export default class Dashboard extends React.Component {
     state = {
         search: '',
         slider1ActiveSlide: SLIDER_1_FIRST_ITEM,
-        isVisible: false
+        isVisible: false,
+        modalVisible: false,
     }
     updateSearch = search => {
         this.setState({ search })
@@ -112,15 +116,19 @@ export default class Dashboard extends React.Component {
     }
 
     setVisible = (val) => {
-        this.setState({isVisible: val});
+        this.setState({ isVisible: val });
+    }
+
+    setModalVisible = (visible) => {
+        this.setState({ modalVisible: visible });
     }
 
     render() {
-        let { search, isVisible } = this.state;
+        let { search, isVisible, modalVisible } = this.state;
         return (
             <View>
                 <ScrollView>
-                    <Header title="Home" navigation={this.props.navigation} setVisible={this.setVisible}/>
+                    <Header title="Home" navigation={this.props.navigation} setVisible={this.setVisible} />
                     <SearchBar
                         placeholder="Type here.."
                         lightTheme
@@ -138,8 +146,12 @@ export default class Dashboard extends React.Component {
                             itemWidth={itemWidth}
                         />
                     </View>
-                    <FilterModal  isVisible={isVisible} setVisible={this.setVisible} />
+                    <FilterModal isVisible={isVisible} setVisible={this.setVisible} />
                 </ScrollView>
+                <TouchableOpacity style={styles.floatingButton} onPress={() => this.setModalVisible(true)}>
+                    <AntIcon name="plus" color="white" size={30} />
+                </TouchableOpacity>
+                <AddService visible={modalVisible} setModalVisible={this.setModalVisible}/>
             </View>
         )
     }
@@ -226,6 +238,19 @@ export const styles = StyleSheet.create({
     modalBody: {
         padding: 10,
         margin: 5
+    },
+    floatingButton: {
+        borderWidth: 1,
+        borderColor: 'rgba(0,0,0,0.2)',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 70,
+        position: 'absolute',
+        bottom: 10,
+        right: 10,
+        height: 70,
+        backgroundColor: '#428bca',
+        borderRadius: 100,
     }
 })
 const colors = {

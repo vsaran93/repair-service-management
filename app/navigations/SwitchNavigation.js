@@ -7,9 +7,11 @@ import Login from '../components/Auth/Login';
 import Register from '../components/Auth/Register';
 import AuthLoading from '../components/Auth/AuthLoading';
 import Logout from '../components/Auth/Logout';
+import Profile from '../components/Customer/Profile';
 
 const appStack = createDrawerNavigator({
-    Home: Dashboard
+    Home: Dashboard,
+    Profile: Profile 
 },
 {
     contentComponent: (props) =>  (<Logout {...props} />),
